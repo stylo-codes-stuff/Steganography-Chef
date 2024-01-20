@@ -14,8 +14,11 @@ def OverlayMultiply(im1, im2, im3="", im4="", im5="", im6=""):
 '''Runs.add on all the frames of a video at 30fps thats no longer then 60 seconds'''
 def overlayVideo(video):
     pass
+'''converts image to base64 string'''
+def imageToBase64(img):
+    pass
 '''converts image into a base64 string and then converts that string into plain text'''
-def decodeBase64(img,base64Str):
+def base64toPlainText(img,base64Str):
     pass
 '''increases the brightness of an image'''
 def brighten(img):
