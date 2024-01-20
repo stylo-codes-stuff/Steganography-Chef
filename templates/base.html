@@ -1,21 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
-    <script src="{{url_for('static',filename='js/main.js')}}" defer></script>
-    <title>Document</title>
-  </head>
-  <body>
-	<div class="container">
-        <div id='drag-zone'>
-		    <div id="card" draggable="true">
-			    <h3>Items</h3>
-		    </div>
-        </div>
-		<div id="drop-zone" />
-	</div>
-  </body>
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1, #div2{
+  float: left;
+  width: 100px;
+  height: 35px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}
+</style>
+<script src="{{url_for('static',filename='js/main.js')}}"> </script>
+</head>
+<body>
+
+<h1>Steganography chef - A Steganography decoding website</h1>
+<h5>Based on the more popular CyberChef<h5>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="{{url_for('static',filename='img/WOHOO.png')}}" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</body>
 </html>
