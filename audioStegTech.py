@@ -1,15 +1,16 @@
-# for data transformation
-import numpy as np
-# for visualizing the data
+import librosa
+import librosa.display
 import matplotlib.pyplot as plt
-# for opening the media file
-import scipy.io.wavfile as wavfile
+
+
 
 '''Takes the Least Signidificant Bits of an audio file and logs them'''
 
 
 def LittleEndianBits(audio):
-    pass
+    f = open("myfile.jpg", "rb")
+
+
 
 
 '''Takes the Most Signidificant Bits of an audio file and logs them'''
@@ -22,17 +23,14 @@ def BigEndianBits(audio):
 '''creates a spectrogram of an audio file'''
 
 
-def spectrogram(audio):
-    Fs, aud = wavfile.read('test resources/example.wav')
-    # select left channel only
-    aud = aud[:,0]
-    # trim the first 125 seconds
-    first = aud[:int(Fs*125)]
-    powerSpectrum, frequenciesFound, time, imageAxis = plt.specgram(first, Fs=Fs)
-    plt.show()
-
-
-'''converts non wav files to wav'''
+def spectrogram(audio,sampleRate):
+    x, sr = librosa.load(audio, sr=sampleRate)
+    X = librosa.stft(x)
+    Xdb = librosa.amplitude_to_db(abs(X))
+    plt.figure(figsize=(14, 5))
+    librosa.display.specshow(Xdb, sr = sr, x_axis = 'time', y_axis = 'hz')
+    #change this for server purposes ig once im ready for it
+    plt.savefig("gram.jpg")
 
 
 def convertToWav(audio):
@@ -46,4 +44,4 @@ def SSTVdecode(audio, mode):
     pass
 
 
-spectrogram("test resources/example.wav")
+spectrogram("sunset_audio.ogg",7000)
